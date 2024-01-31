@@ -3,7 +3,7 @@ import { Grid, Typography, Button } from '@mui/material';
 
 function Aboutme() {
   return (
-    <Grid style={{backgroundColor:'white', padding:'25px', borderRadius:'2%', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.5)'}}>
+    <Grid style={{backgroundColor:'white',padding:'75px', borderRadius:'2%', boxShadow: '0px 0px 10px rgba(0, 0, 0, 0.5)'}}>
       <Typography variant="h6"  id="hakkimdaTitle">Hakkımda</Typography>
       <Grid container spacing={2}>
         <Grid item xs={6}>

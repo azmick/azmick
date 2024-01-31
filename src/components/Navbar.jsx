@@ -22,14 +22,14 @@ function Navbar() {
 
   useEffect(() => {
     const navbarHeight = navbarRef.current.clientHeight; // Navbar bileşeninin yüksekliğini ölçüyoruz
-    document.body.style.paddingTop = `${navbarHeight+25}px`; // Body elementine Navbar yüksekliğine eşit bir padding-top ekliyoruz
+    document.body.style.paddingTop = `${navbarHeight+10}px`; // Body elementine Navbar yüksekliğine eşit bir padding-top ekliyoruz
     return () => {
       document.body.style.paddingTop = 0; // Clean-up: Komponent kaldırıldığında padding-top'u sıfırlıyoruz
     };
   }, []); // useEffect sadece bir kez çalışacak şekilde ayarlanıyor
 
   return (
-    <AppBar position="fixed" style={{ backgroundColor: 'blue', zIndex: 1000 }} ref={navbarRef}> {/* Navbar bileşenini ref ile referans alıyoruz */}
+    <AppBar position="fixed" style={{ backgroundColor: 'blue'}} ref={navbarRef}> {/* Navbar bileşenini ref ile referans alıyoruz */}
       <Container maxWidth="lg">
         <Toolbar style={{ justifyContent: 'space-between' }}>
           <Typography variant="h5" align="left">
