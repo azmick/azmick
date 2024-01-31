@@ -10,36 +10,39 @@ function Navbar() {
     const yeteneklerTitle = document.getElementById("yeteneklerTitle");
     const hakkimdaTitle = document.getElementById("hakkimdaTitle");
     const iletisimTitle = document.getElementById("iletisimTitle");
-  
+
     if (newValue === 1 && yeteneklerTitle) {
       yeteneklerTitle.scrollIntoView({ behavior: "smooth" });
     } else if (newValue === 0 && hakkimdaTitle) {
+      const navbarHeight = navbarRef.current.clientHeight; // Navbar bileşeninin yüksekliğini ölçüyoruz
       hakkimdaTitle.scrollIntoView({ behavior: "smooth" });
+      window.scrollBy(0, -navbarHeight); // Scroll pozisyonunu navbar yüksekliği kadar yukarı çekiyoruz
     } else if (newValue === 2 && iletisimTitle) {
       iletisimTitle.scrollIntoView({ behavior: "smooth" });
     }
   };
 
+
   useEffect(() => {
     const navbarHeight = navbarRef.current.clientHeight; // Navbar bileşeninin yüksekliğini ölçüyoruz
-    document.body.style.paddingTop = `${navbarHeight+10}px`; // Body elementine Navbar yüksekliğine eşit bir padding-top ekliyoruz
+    document.body.style.paddingTop = `${navbarHeight + 10}px`; // Body elementine Navbar yüksekliğine eşit bir padding-top ekliyoruz
     return () => {
       document.body.style.paddingTop = 0; // Clean-up: Komponent kaldırıldığında padding-top'u sıfırlıyoruz
     };
   }, []); // useEffect sadece bir kez çalışacak şekilde ayarlanıyor
 
   return (
-    <AppBar position="fixed" style={{ backgroundColor: 'blue'}} ref={navbarRef}> {/* Navbar bileşenini ref ile referans alıyoruz */}
+    <AppBar position="fixed" style={{ backgroundColor: 'blue' }} ref={navbarRef}> {/* Navbar bileşenini ref ile referans alıyoruz */}
       <Container maxWidth="lg">
         <Toolbar style={{ justifyContent: 'space-between' }}>
           <Typography variant="h5" align="left">
-            <FontAwesomeIcon icon={faLaptopCode}/>
+            <FontAwesomeIcon icon={faLaptopCode} />
             dev.azmi
           </Typography>
           <Tabs value={false} onChange={handleTabChange} aria-label="navigation tabs">
-            <Tab label="HAKKIMDA" style={{ color: 'white' }}/>
-            <Tab label="YETENEKLER" style={{ color: 'white' }}/>
-            <Tab label="İLETİŞİM" style={{ color: 'white' }}/>
+            <Tab label="HAKKIMDA" style={{ color: 'white' }} />
+            <Tab label="YETENEKLER" style={{ color: 'white' }} />
+            <Tab label="İLETİŞİM" style={{ color: 'white' }} />
           </Tabs>
         </Toolbar>
       </Container>
