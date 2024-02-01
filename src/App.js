@@ -16,7 +16,7 @@ function scrollToTop() {
 
 function App() {
 
-  const [isSmallScreen, setIsSmallScreen] = React.useState(window.innerWidth < 768);
+  const [isSmallScreen] = React.useState(window.innerWidth < 768);
   return (
     <>
       <Container>
